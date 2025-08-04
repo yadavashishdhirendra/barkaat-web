@@ -168,3 +168,12 @@
         background-position: 200% center;
     }
 }
+
+.overlay__content>.wrapper {
+    text-align: center;
+}
+
+.overlay__content>.wrapper>img {
+    width: 200px;
+    margin-bottom: 20px;
+}

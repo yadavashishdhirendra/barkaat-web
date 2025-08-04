@@ -12,6 +12,7 @@ import PeanutImg from '../../Assets/image1.png';
 import KAJU from '../../Assets/KAJU.png'
 import bundle from '../../Assets/Untitled.png'
 import Footer from './Footer';
+import Loader from '../../Assets/loader.gif'
 
 
 export const Home = () => {
@@ -195,6 +196,7 @@ export const Home = () => {
       <div className='overlay__content'>
         <div class="wrapper">
           {/* <h1>We're Launching Soon!<span class="dot">.</span></h1> */}
+          <img src={Loader} alt="" />
           <h1>We're Launching Soon!</h1>
           <p>Our website is under construction. We'll be here soon with something amazing. Stay tuned!</p>
           <h3>

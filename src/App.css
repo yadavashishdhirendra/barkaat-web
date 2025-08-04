@@ -1,0 +1,170 @@
+.home__blur__container {
+    position: relative;
+    top: 0;
+}
+
+.home__blur__container::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    background-color: rgba(182, 145, 85, 0.25);
+    backdrop-filter: blur(20px);
+    left: 0;
+    width: 100vw;
+}
+
+.overlay__content {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes fadeIn {
+    from {
+        top: 20%;
+        opacity: 0;
+    }
+
+    to {
+        top: 100;
+        opacity: 1;
+    }
+
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        top: 20%;
+        opacity: 0;
+    }
+
+    to {
+        top: 100;
+        opacity: 1;
+    }
+
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    animation: fadeIn 1000ms ease;
+    -webkit-animation: fadeIn 1000ms ease;
+
+}
+
+.wrapper>h1 {
+    font-size: 50px;
+    font-family: "Bungee", sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    line-height: 1;
+    font-weight: 700;
+    text-align: center;
+
+    /* white-space: nowrap; */
+    font-family: "Bungee", sans-serif;
+    font-weight: normal;
+
+    /* Gradient base */
+    background: linear-gradient(90deg,
+            #fff,
+            #1c1c1c,
+            #1c1c1c);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /* Animation */
+    animation: shine 2s linear infinite;
+
+    @media screen and (max-width: 598px) {
+        font-size: 32px;
+    }
+}
+
+.dot {
+    color: #4FEBFE;
+}
+
+.wrapper>p {
+    text-align: center;
+    margin: 18px;
+    font-size: 18px;
+    font-family: "Bungee", sans-serif;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    /* text-transform: capitalize; */
+
+
+    /* white-space: nowrap; */
+    font-family: "Bungee", sans-serif;
+    font-weight: normal;
+
+    /* Gradient base */
+    background: linear-gradient(90deg,
+            #fff,
+            #1c1c1c,
+            #1c1c1c);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /* Animation */
+    animation: shine 2s linear infinite;
+
+    @media screen and (max-width: 598px) {
+        font-size: 14px;
+    }
+}
+
+.wrapper>h3 {
+    /* background-color: white; */
+    text-align: center;
+    margin: 18px;
+    letter-spacing: 1px;
+    font-size: 68px;
+    white-space: nowrap;
+    font-family: "Bungee", sans-serif;
+    font-weight: normal;
+
+    /* Gradient base */
+    background: linear-gradient(90deg,
+            #fff,
+            #1c1c1c,
+            #1c1c1c);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /* Animation */
+    animation: shine 2s linear infinite;
+
+    @media screen and (max-width: 598px) {
+        font-size: 32px;
+    }
+}
+
+@keyframes shine {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}

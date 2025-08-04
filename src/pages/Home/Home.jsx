@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/style.css'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -147,8 +147,63 @@ export const Home = () => {
 
   const imagesm = [bundle];
 
+
+  const [timeLeft, setTimeLeft] = useState({});
+
+  useEffect(() => {
+    // Check if countdown end time exists in localStorage
+    let storedEndTime = localStorage.getItem('countdownEndTime');
+
+    if (!storedEndTime) {
+      // Set new countdown target time: now + 10 days
+      const newEndTime = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000);
+      localStorage.setItem('countdownEndTime', newEndTime.toISOString());
+      storedEndTime = newEndTime.toISOString();
+    }
+
+    const targetDate = new Date(storedEndTime);
+
+    const updateTimer = () => {
+      const now = new Date();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        clearInterval(timerInterval);
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      });
+    };
+
+    // Start the countdown interval
+    updateTimer(); // run once immediately
+    const timerInterval = setInterval(updateTimer, 1000);
+
+    return () => clearInterval(timerInterval);
+  }, []);
+
   return (
-    <div>
+    <div className='home__blur__container'>
+
+      {/* overlay content */}
+      <div className='overlay__content'>
+        <div class="wrapper">
+          {/* <h1>We're Launching Soon!<span class="dot">.</span></h1> */}
+          <h1>We're Launching Soon!</h1>
+          <p>Our website is under construction. We'll be here soon with something amazing. Stay tuned!</p>
+          <h3>
+            {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+          </h3>
+        </div>
+      </div>
+      {/* overlay content */}
+
       <div className='all_items'>
         <div className="top-header">
           <div className="category">
@@ -242,9 +297,7 @@ export const Home = () => {
         </div>
         {/* next */}
       </div>
-
-    <Footer />
-
+      <Footer />
     </div>
   )
 }

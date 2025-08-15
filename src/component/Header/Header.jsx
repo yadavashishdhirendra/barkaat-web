@@ -26,7 +26,7 @@ const Header = () => {
       <div className={`header__container ${isHidden ? 'hidden' : ''}`}>
         <ul>
           <li>Home</li>
-          <li>Our Products</li>
+          <li>Explore</li>
           <li>Blogs</li>
           <li>Profile</li>
         </ul>

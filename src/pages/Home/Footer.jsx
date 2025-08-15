@@ -1,5 +1,6 @@
 import React from 'react'
 import brk_logo from '../../Assets/brklogo.png'
+import SmokyBanner from '../../component/smoky/Smoky'
 
 const Footer = () => {
     return (

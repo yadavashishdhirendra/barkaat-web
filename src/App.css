@@ -1,4 +1,4 @@
-.home__blur__container {
+/* .home__blur__container {
     position: relative;
     top: 0;
 }
@@ -12,7 +12,7 @@
     backdrop-filter: blur(20px);
     left: 0;
     width: 100vw;
-}
+} */
 
 .overlay__content {
     position: fixed;
@@ -63,7 +63,8 @@
 
 .wrapper>h1 {
     font-size: 50px;
-    font-family: "Bungee", sans-serif;
+    /* font-family: "Bungee", sans-serif; */
+    font-family: 'Sallafi';
     letter-spacing: 1px;
     margin-bottom: 0;
     line-height: 1;
@@ -101,7 +102,8 @@
     text-align: center;
     margin: 18px;
     font-size: 18px;
-    font-family: "Bungee", sans-serif;
+    /* font-family: "Bungee", sans-serif; */
+    font-family: 'Sallafi';
     font-weight: normal;
     letter-spacing: 0.5px;
     /* text-transform: capitalize; */
@@ -137,7 +139,8 @@
     letter-spacing: 1px;
     font-size: 68px;
     white-space: nowrap;
-    font-family: "Bungee", sans-serif;
+    /* font-family: "Bungee", sans-serif; */
+    font-family: 'Sallafi';
     font-weight: normal;
 
     /* Gradient base */

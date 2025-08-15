@@ -12,7 +12,11 @@ import PeanutImg from '../../Assets/image1.png';
 import KAJU from '../../Assets/KAJU.png'
 import bundle from '../../Assets/Untitled.png'
 import Footer from './Footer';
-import Loader from '../../Assets/loader.gif'
+// import Loader from '../../Assets/loader.gif'
+import Lamp from '../../Assets/Banner/lamp.png'
+import Logo from '../../Assets/Banner/barkat__logo.png'
+import SmokyBackground from '../../component/smoky/Smoky';
+import Header from '../../component/Header/Header';
 
 
 export const Home = () => {
@@ -22,7 +26,7 @@ export const Home = () => {
     speed: 500,
     slidesToShow: 4.5,
     arrows: false,
-    autoplay: true,      // ▶️ Enables autoscroll
+    autoplay: true,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
 
@@ -57,7 +61,7 @@ export const Home = () => {
     speed: 500,
     slidesToShow: 3.5,
     arrows: false,
-    autoplay: true,      // ▶️ Enables autoscroll
+    autoplay: true,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
 
@@ -93,7 +97,7 @@ export const Home = () => {
     speed: 500,
     slidesToShow: 3,
     arrows: true,
-    autoplay: true,      // ▶️ Enables autoscroll
+    autoplay: true,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
 
@@ -152,17 +156,16 @@ export const Home = () => {
   const [timeLeft, setTimeLeft] = useState({});
 
   useEffect(() => {
-    // Check if countdown end time exists in localStorage
     let storedEndTime = localStorage.getItem('countdownEndTime');
 
     if (!storedEndTime) {
-      // Set new countdown target time: now + 10 days
       const newEndTime = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000);
       localStorage.setItem('countdownEndTime', newEndTime.toISOString());
       storedEndTime = newEndTime.toISOString();
     }
 
     const targetDate = new Date(storedEndTime);
+    const intervalRef = { current: null };
 
     const updateTimer = () => {
       const now = new Date();
@@ -170,7 +173,7 @@ export const Home = () => {
 
       if (difference <= 0) {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        clearInterval(timerInterval);
+        clearInterval(intervalRef.current);
         return;
       }
 
@@ -182,20 +185,19 @@ export const Home = () => {
       });
     };
 
-    // Start the countdown interval
-    updateTimer(); // run once immediately
-    const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+    intervalRef.current = setInterval(updateTimer, 1000);
 
-    return () => clearInterval(timerInterval);
+    return () => clearInterval(intervalRef.current);
   }, []);
+
 
   return (
     <div className='home__blur__container'>
 
       {/* overlay content */}
-      <div className='overlay__content'>
+      {/* <div className='overlay__content'>
         <div class="wrapper">
-          {/* <h1>We're Launching Soon!<span class="dot">.</span></h1> */}
           <img src={Loader} alt="" />
           <h1>We're Launching Soon!</h1>
           <p>Our website is under construction. We'll be here soon with something amazing. Stay tuned!</p>
@@ -203,8 +205,22 @@ export const Home = () => {
             {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
           </h3>
         </div>
-      </div>
+      </div> */}
       {/* overlay content */}
+
+      <Header />
+
+      <div className="banner__container">
+        <img src={Lamp} alt="" />
+        <img src={Logo} alt="" />
+
+        <SmokyBackground />
+
+        <div className='banner__overlay__content'>
+          <h1>Welcome to Barkat — The Abundance of Nature, Delivered to You.</h1>
+          <p>Discover handpicked dry fruits sourced from the finest orchards, packed with <br /> love and blessings for your family’s health.”</p>
+        </div>
+      </div>
 
       <div className='all_items'>
         <div className="top-header">

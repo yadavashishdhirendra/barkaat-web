@@ -456,3 +456,9 @@ html {
 }
 
 /* Banner css ends here */
+
+.itemw {
+    border: 3px solid rgba(182, 145, 85, 1);
+    border-radius: 33px;
+    padding: 20px 10px;
+}

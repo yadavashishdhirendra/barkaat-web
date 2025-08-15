@@ -1,0 +1,39 @@
+.itemw {
+    border: 1px solid rgba(182, 145, 85, 1);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+
+.divider::before {
+    content: "";
+    width: 50px;
+    /* small left line */
+    border-bottom: 5px solid rgba(182, 145, 85, 1);
+}
+
+.divider::after {
+    content: "";
+    flex: 1;
+    /* take remaining space */
+    border-bottom: 5px solid rgba(182, 145, 85, 1);
+    margin-left: 0.75em;
+}
+
+.divider span {
+    margin: 0 0.1em;
+    color: rgba(182, 145, 85, 1);
+    font-size: 70px;
+    font-weight: 700;
+    font-family: "Sallafi";
+    letter-spacing: 0.5px;
+}
+
+.mt-5 {
+    margin-top: 10rem;
+}
